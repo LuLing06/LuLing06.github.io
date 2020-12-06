@@ -2,15 +2,15 @@
 <html lang="en">
 
 <head>
-  <title>Yichen Sheng</title>
+  <title>{{ site.name }}</title>
 
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
-  <meta name="author" content="Yichen Sheng" />
+  <meta name="author" content="{{ site.name }}" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" type="text/css" href="/style.css" />
-  <link rel="canonical" href="/">
+  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
 </head>
@@ -51,47 +51,48 @@
         </table>
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
 
-          
-          
-          
-          
-          
-          
-          
+          {% for post in site.posts %}
+          {% for cat in post.categories %}
+          {% if cat == 'research' %}
           <tr>
             <td style="padding:2.5%;width:25%;vertical-align:middle;min-width:120px">
-              <img src="/images/SSN.png" alt="project image" style="width:auto; height:auto; max-width:100%;" />
+              <img src="{{post.image}}" alt="project image" style="width:auto; height:auto; max-width:100%;" />
             </td>
             <td style="padding:2.5%;width:75%;vertical-align:middle">
-              <h3>SSN: Soft Shadow Network for Image Composition</h3>
+              <h3>{{post.title}}</h3>
               <br>
-              Yichen Sheng, Jianming Zhang, Bedrich Benes
+              {{post.authors}}
 
               <br>
-              
+              {% if post.venue %}
+              <em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}
+              {% endif %}
               <br>
-              
-              <a href="https://shengcn.github.io/SSN/">> proj</a> 
-              
-              
-              <a href="https://arxiv.org/abs/2007.08211v2">> arxiv </a>  
-              
-              
-              
-              
-              
+              {% if post.proj %}
+              <a href="{{post.proj}}">> proj</a> 
+              {% endif %}
+              {% if post.arxiv %}
+              <a href="{{post.arxiv}}">> arxiv </a>  
+              {% endif %}
+              {% if post.video %}
+              <a href="{{post.video}}">> video </a> 
+              {% endif %}
+              {% if post.code %}
+              <a href="{{post.code}}">> code </a> 
+              {% endif %}
+              {% if post.poster %}
+              <a href="{{post.poster}}">> poster </a> 
+              {% endif %}
+              {% if post.slides %}
+              <a href="{{post.slides}}">> slides </a> 
+              {% endif %}
               <p></p>
-              
-
+              {{ post.excerpt }}
             </td>
           </tr>
-          
-          
-          
-          
-          
-          
-          
+          {% endif %}
+          {% endfor %}
+          {% endfor %}
         </table>
         <br>
         <br>
@@ -106,47 +107,58 @@
           </tr>
         </table>
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
+          {% for post in site.posts %}
+          {% for cat in post.categories %}
+          {% if cat != 'research' and cat != 'blog'  %}
           <tr>
             <td style="padding:2.5%;width:25%;vertical-align:middle;min-width:120px">
-              <img src="/images/SH_Figure.png" alt="project image" style="width:auto; height:auto; max-width:100%;" />
+              <img src="{{post.image}}" alt="project image" style="width:auto; height:auto; max-width:100%;" />
             </td>
             <td style="padding:2.5%;width:75%;vertical-align:middle">
-              <h3>Spherical harmonics and soft shadows</h3>
+              <h3>{{post.title}}</h3>
               <br>
-              <em>Purdue </em>
+              <em>{{post.categories}} {{post.course}}</em>
               <br>
-              2020-12-04
+              {{ post.date | date: "%Y-%m-%d" }}
 
               <br>
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
+              {% if post.website %}
+              <a href="{{post.website}}">website</a> /
+              {% endif %}
+              {% if post.paper %}
+              <a href="{{post.paper}}">paper</a> /
+              {% endif %}
+              {% if post.patent %}
+              <a href="{{post.patent}}">patent</a> /
+              {% endif %}
+              {% if post.patent2 %}
+              <a href="{{post.patent2}}">patent #2</a> /
+              {% endif %}
+              {% if post.patent3 %}
+              <a href="{{post.patent3}}">patent #3</a> /
+              {% endif %}
+              {% if post.video %}
+              <a href="{{post.video}}">video</a> /
+              {% endif %}
+              {% if post.video2 %}
+              <a href="{{post.video2}}">video #2</a> /
+              {% endif %}
+              {% if post.code %}
+              <a href="{{post.code}}">code</a> /
+              {% endif %}
+              {% if post.poster %}
+              <a href="{{post.poster}}">poster</a> /
+              {% endif %}
+              {% if post.slides %}
+              <a href="{{post.slides}}">slides</a> /
+              {% endif %}
               <p></p>
-              <p><a href="/blog/2020/12/04/spherical_harmonics">&gt; Blogs</a></p>
-
+              {{ post.excerpt }}
             </td>
           </tr>
-          
-          
-          
+          {% endif %}
+          {% endfor %}
+          {% endfor %}
         </table>
 
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
