@@ -4,9 +4,9 @@ title:  "Forecasting the gap between demand and supply of e-hailing vehicle in l
 date:   2019-11-28 00:00:59 +00:00
 image: images/ehailing.gif
 authors: Lu Ling, Xiongfei Lai, Feng Li
-description: Ridersharing, Matching, Neural Network, Prediction
+description: Ridesharing, Matching, Neural Network, Prediction
 categories: research
 author: "Lu Ling"
 venue: IEEE Intelligent Transportation Systems Conference (2019)
-paper: https://ieeexplore.ieee.org/abstract/document/8916974  (2019 IEEE Intelligent Transportation Systems Conference)
+paper: https://ieeexplore.ieee.org/abstract/document/8916974 
 ---
