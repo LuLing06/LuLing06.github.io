@@ -1,0 +1,193 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <title>{{ site.name }}</title>
+
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+  <meta name="author" content="{{ site.name }}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  <link rel="icon" href="images/purdue.png">
+
+</head>
+
+
+
+<body>
+  <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+    <tr style="padding:0px">
+      <td style="padding:0px">
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <tr style="padding:0px">
+            <td style="padding:2.5%;width:60%;vertical-align:middle">
+              <h1>
+                Lu Ling 
+              </h1>
+              <!-- <p>  My research interests focus on artificial intelligence in computer vision, including image editing and 3D content generation using learning-based 3D deep models. Besides, we collected a 10K real-world scene dataset to forge a path toward a foundation model for learning 3D representation.  </p> -->
+              <p>  I am Lu Ling, a PhD student in the <a href='https://ideas.cs.purdue.edu/'>IDEADs Lab</a> and <a href="https://www.cs.purdue.edu/cgvlab/www/">CGV Lab</a> at Purdue University, advised by <a href="https://www.cs.purdue.edu/homes/ab/">Prof. Aniket Bera</a>.
+                <br>
+                <br> I am passionate about all aspects of 3D/4D GenAI and multi-modal models, including generative AI, vision-language modeling, and AI agent for reasoning and understanding. To contribute to this field, we developed the <a href='https://dl3dv-10k.github.io/DL3DV-10K/'> DL3DV-10K </a>, a real-world scene dataset to forge a path toward a foundation model for learning 3D representation.  
+                <br>
+                <br> I am a NVIDIA Research intern in 2024 summer and fall, and working with <a href="https://mli0603.github.io/">Zhaoshuo Li</a>, <a href="https://chenhsuanlin.bitbucket.io/">Chen-Hsuan Lin</a>, <a href="https://tsungyilin.info/">Tsung-Yin Lin</a>, and <a href="https://mingyuliu.net/">Ming-Yu Liu</a>
+              
+              </p>
+              
+              <p style="text-align:center">
+                <a href="mailto:ling58@purdue.edu"> Email</a> &nbsp;/&nbsp;
+                <a href="https://drive.google.com/file/d/1sV_BxA5qk4CfRIh1t-t3riCrXKz8eAW8/view?usp=drive_link">CV</a> &nbsp;/&nbsp;
+                <a href="https://scholar.google.com/citations?user=PuJyDnEAAAAJ&hl=zh-CN">Google Scholar</a> &nbsp;/&nbsp;
+                <a href="https://www.linkedin.com/in/lu-ling-a528b5172/"> LinkedIn </a>
+              </p>
+            </td>
+            <td style="padding:2.5%;width:40%;max-width:40%">
+              <img style="width:100%;max-width:100%" alt="profile photo" src="images/profile-modified.png">
+            </td>
+          </tr>
+        </table>
+
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <tr>
+            <td style="padding:2.5%;width:100%;vertical-align:middle">
+              <h2>Research</h2>
+            </td>
+          </tr>
+        </table>
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+
+          {% for post in site.posts %}
+          {% for cat in post.categories %}
+          {% if cat == 'research' %}
+          <tr>
+            <td style="padding:2.5%;width:25%;vertical-align:middle;min-width:120px">
+              <img src="{{post.image}}" alt="project image" style="width:auto; height:auto; max-width:100%;" />
+            </td>
+            <td style="padding:2.5%;width:75%;vertical-align:middle">
+              <h3>{{post.title}}</h3>
+              <br>
+              {{post.authors}}
+              <br>
+
+              {% if post.venue %}
+              <em>{{post.venue}}</em>
+              {% endif %}
+              <br>
+              {% if post.description %}
+              <em>{{post.description}}</em>
+              {% endif %}
+              <br>
+              {% if post.proj %}
+              <a href="{{post.proj}}">> proj</a> 
+              {% endif %}
+              {% if post.paper %}
+              <a href="{{post.paper}}">> paper </a>  
+              {% endif %}
+              {% if post.video %}
+              <a href="{{post.video}}">> video </a> 
+              {% endif %}
+              {% if post.code %}
+              <a href="{{post.code}}">> code </a> 
+              {% endif %}
+              {% if post.poster %}
+              <a href="{{post.poster}}">> poster </a> 
+              {% endif %}
+              {% if post.slides %}
+              <a href="{{post.slides}}">> slides </a> 
+              {% endif %}
+              {% if post.adobe_max %}
+              <a href="{{post.adobe_max}}">> Adobe Max </a>
+              {% endif %}
+              <p></p>
+              {{ post.excerpt }}
+            </td>
+          </tr>
+          {% endif %}
+          {% endfor %}
+          {% endfor %}
+        </table>
+        <br>
+        <br>
+        <br>
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <tr>
+            <td style="padding:2.5%;width:100%;vertical-align:middle">
+              <h2>Projects</h2>
+            </td>
+          </tr>
+        </table>
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          {% for post in site.posts %}
+          {% for cat in post.categories %}
+          {% if cat != 'research' and cat != 'blog'  %}
+          <tr>
+            <td style="padding:2.5%;width:25%;vertical-align:middle;min-width:120px">
+              <img src="{{post.image}}" alt="project image" style="width:auto; height:auto; max-width:100%;" />
+            </td>
+            <td style="padding:2.5%;width:75%;vertical-align:middle">
+              <h3>{{post.title}}</h3>
+              <br>
+              <em>{{post.categories}} {{post.course}}</em>
+              <br>
+              {{ post.date | date: "%Y-%m-%d" }}
+
+              <br>
+              {% if post.website %}
+              <a href="{{post.url}}">website</a> /
+              {% endif %}
+              {% if post.paper %}
+              <a href="{{post.paper}}">paper</a> /
+              {% endif %}
+              {% if post.patent %}
+              <a href="{{post.patent}}">patent</a> /
+              {% endif %}
+              {% if post.patent2 %}
+              <a href="{{post.patent2}}">patent #2</a> /
+              {% endif %}
+              {% if post.patent3 %}
+              <a href="{{post.patent3}}">patent #3</a> /
+              {% endif %}
+              {% if post.video %}
+              <a href="{{post.video}}">video</a> /
+              {% endif %}
+              {% if post.video2 %}
+              <a href="{{post.video2}}">video #2</a> /
+              {% endif %}
+              {% if post.code %}
+              <a href="{{post.code}}">code</a> /
+              {% endif %}
+              {% if post.poster %}
+              <a href="{{post.poster}}">poster</a> /
+              {% endif %}
+              {% if post.slides %}
+              <a href="{{post.slides}}">slides</a> /
+              {% endif %}
+              <p></p>
+              {{ post.excerpt }}
+            </td>
+          </tr>
+          {% endif %}
+          {% endfor %}
+          {% endfor %}
+        </table>
+
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <tr>
+            <td style="padding:0px">
+              <p style="text-align:center;font-size:small;">
+                Cool sites from <a style="font-size:small;" href="https://jonbarron.info">Jon Barron's website.</a>
+                Thanks for <a style="font-size:small;" href="https://leonidk.com/">Leonid Keselman</a>'s Jekyll template
+              </p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+
+</html>
+
