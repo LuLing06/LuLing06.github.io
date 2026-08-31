@@ -74,6 +74,12 @@
               <em>{{post.venue}}</em>
               {% endif %}
               <br>
+              {% if post.downloads %}
+              <a href="{{post.downloads_url}}" target="_blank" style="text-decoration: none;">
+                <img src="https://img.shields.io/badge/🤗_Downloads-{{post.downloads}}-yellow?style=flat-square" alt="{{post.downloads}} Downloads" style="vertical-align: middle;">
+              </a>
+              <br>
+              {% endif %}
               {% if post.description %}
               <em>{{post.description}}</em>
               {% endif %}
